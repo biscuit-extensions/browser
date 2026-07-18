@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "{{cookiecutter.extension_name}}"
-version = "{{ cookiecutter.version }}"
-description = "{{ cookiecutter.description }}"
-authors = ["{{ cookiecutter.author }}"]
+name = "browser"
+version = "0.1.0"
+description = "A browser extension for Biscuit - surf the web inside your editor"
+authors = ["biscuit"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

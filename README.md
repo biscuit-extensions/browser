@@ -1,35 +1,61 @@
-## Hello Biscuit Extension Template
+# Browser
 
-This template is used to initialize a new Biscuit extension. It includes the basic structure (package, tests) for a simple extension that greets the user.
+A real web browser tab for Biscuit — surf YouTube, Google, or any site directly inside your editor.
 
-Check the [API reference](https://tomlin7.github.io/biscuit/api/app) for adding more functionality to your extension.
+## Features
 
-## Getting Started
+- Opens a browser as a proper editor tab
+- Navigation toolbar (back, forward, reload)
+- URL bar with Go button and Enter-key navigation
+- Uses Microsoft Edge WebView2 (Chromium engine) — full JavaScript support
+- Falls back to tkinterweb HtmlFrame if WebView2 runtime is unavailable
 
-To create a new Biscuit extension using this template, you can use the [Biscuit CLI](https://pypi.org/project/biscuit-editor)(Make sure you have it installed).
+## Requirements
 
-```cs
-biscuit ext new <extension name>
-```
+- **Windows** (WebView2 is Windows-only)
 
-> [!NOTE] 
-> Make sure you have `cookiecutter` installed (`pip install cookiecutter`).
-
-## Project Structure
-
-Keep the structure of the project as follows to ensure compatibility with Biscuit's extension system:
+## Dependencies
 
 ```bash
-your-extension/
+pip install tkwebview2
+```
+
+If WebView2 runtime is not found, it will be installed automatically.
+
+## Usage
+
+1. Install the extension
+2. Open Command Palette (`Ctrl+Shift+P`)
+3. Search for "Browser: Open New Tab"
+4. Type a URL and press Enter
+
+## Development
+
+### Project Structure
+
+```
+browser/
 ├── src/
-│   └── your_extension/
-│       ├── __init__.py          # Extension entry point
+│   └── browser/
+│       ├── __init__.py          # Entry point
 │       └── extension.py         # Main extension logic
 ├── tests/
 │   ├── __init__.py
-│   ├── conftest.py             # Pytest configuration
-│   └── test_your_extension.py  # Test cases
-├── pyproject.toml              # Project configuration
-├── README.md                   # Documentation
-└── .gitignore                  # Git ignore rules
+│   ├── conftest.py
+│   └── test_browser.py
+├── pyproject.toml
+└── README.md
 ```
+
+## Changelog
+
+### 0.1.0
+
+- Initial release
+- WebView2-based browser tab
+- Navigation controls (back, forward, reload)
+- URL input with Enter-key navigation
+
+## License
+
+MIT
